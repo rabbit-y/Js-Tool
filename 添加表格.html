@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{width:422px;margin: 0 auto;}
+        #btn1,#btn2{float: right;}
+        .box{border: 1px solid #CCCCCC;}
+        table{width:422px;border-collapse: collapse;margin-top:20px;}
+        thead{font-weight: bold;}
+        td{border: 1px solid #1a1a1a; text-align: center;}
+    </style>
+    <script>
+        window.onload = function(){
+            var tb = document.getElementById("tb");
+            var age = document.getElementById("age");
+            var name = document.getElementById("name");
+            var btn1 = document.getElementById("btn1");
+            var btn2 = document.getElementById("btn2");
+            var btn = document.getElementsByName("btn");
+            var trs = tb.rows;
+
+            btn1.onclick = function() {
+                var new1 = document.createElement("tr");
+                var new2 = document.createElement("td");
+                new2.innerHTML = "<input type='checkbox'>";
+                new1.appendChild(new2);                             //添加复选框
+
+                var b1 = document.getElementById("b1");
+                var b2 = document.getElementById("b2");
+                b1.onclick = function(){
+                    for(var j=0;j<tb.tBodies[0].rows.length;j++){
+                        var str = tb.tBodies[0].rows[j].cells[0].getElementsByTagName("input")[0];
+                        str.checked =true;
+                    }                                           //点击全选按钮
+                };
+                b2.onclick = function(){
+                    for(var j=0;j<tb.tBodies[0].rows.length;j++){
+                        var str = tb.tBodies[0].rows[j].cells[0].getElementsByTagName("input")[0];
+                        if(str.checked==true){
+                            str.checked =false;
+                        }else{
+                            str.checked =true;
+                        }
+                    }
+                };                                                 //点击反选按钮
+
+                btn2.onclick = function(){
+                    for(var j=0;j<tb.tBodies[0].rows.length;j++){
+                        var str = tb.tBodies[0].rows[j].cells[0].getElementsByTagName("input")[0];
+                        if(str.checked==true){
+                            tb.tBodies[0].removeChild(str.parentNode.parentNode);
+                        }
+                    }
+                };                                                  //删除选中的表格行
+
+                var new2 = document.createElement("td");
+                new2.innerHTML = name.value;
+                new1.appendChild(new2);                             //添加名字
+
+                var new2 = document.createElement("td");
+                for (var i=0;i<btn.length;i++){
+                    if(btn[i].checked==true){
+                        new2.innerHTML = btn[i].value;
+                        new1.appendChild(new2);
+                    }
+                }                                                   //添加男女选项
+
+                var new2 = document.createElement("td");
+                new2.innerHTML = age.value;
+                new1.appendChild(new2);                              //添加年龄
+
+                tb.tBodies[0].appendChild(new1);
+                for (var f=0;f<trs.length;f++){
+                    if(f%2){
+                        trs[f].style.background="pink";                //表格各行变色
+                    }
+                }
+            };
+        }
+    </script>
+</head>
+<body>
+<div>
+    <div class="box">
+        请输入姓名：<input type="text" id="name"><br/>
+        请选择性别：<input type="radio" name="btn" value="男">男
+        <input type="radio" name="btn" value="女">女<br/>
+        请输入年龄：<input type="text" id="age">
+        <input type="button" value="添加到表格" id="btn1">
+    </div>
+    <table id="tb">
+        <thead>
+        <tr>
+            <td style="width: 85px;"><b id="b1">全选/</b><b id="b2">反选</b></td>
+            <td>姓名</td>
+            <td>性别</td>
+            <td>年龄</td>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <input type="button" value="删除所选行" id="btn2">
+</div>
+</body>
+</html>

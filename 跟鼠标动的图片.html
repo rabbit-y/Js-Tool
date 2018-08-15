@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function(){
+            var img1 = document.getElementById("img1");
+
+            document.onclick = function (ev) {
+                ev = ev||event;
+                img1.style.marginLeft = ev.clientX+"px";
+                img1.style.marginTop = ev.clientY+"px";
+                console.log(ev.clientX);
+            }
+        }
+    </script>
+</head>
+<body>
+<img src="../../../MyJavascript/img/10.png" style="width:100px; border: 1px solid black;" id="img1">
+</body>
+</html>

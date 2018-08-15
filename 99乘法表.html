@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload= function() {
+            var box = document.getElementById("box");
+            var num = "";
+
+            for (var i = 1; i <= 9; i++) {
+                for (var j = 1; j <= i; j++) {
+                    num += i + "*" + j + "=" + j * i + " ";
+                }
+                num += "</br>";
+            }
+            box.innerHTML=num;
+        }
+    </script>
+</head>
+<body>
+<div>
+    <h1>九九乘法表</h1>
+    <div id="box"></div>
+</div>
+</body>
+</html>

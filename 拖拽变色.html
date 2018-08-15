@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function(){
+            var img1 = document.getElementById("img1");
+            var box = document.getElementById("box");
+
+            box.onmousedown = function(ev){
+                ev = ev||event;
+                var L = ev.clientX-box.offsetLeft;
+                var T = ev.clientY-box.offsetTop;
+                document.onmousemove = function(ev){
+                    ev = ev||event;
+                    var boxX = ev.clientX-L;
+                    var boxY = ev.clientY-T;
+                    if(boxX<0){
+                        boxX=0;
+                    }else if(boxX>document.documentElement.clientWidth-box.offsetWidth){
+                        boxX=document.documentElement.clientWidth-box.offsetWidth;
+                    }
+                    if(boxY<0){
+                        boxY=0;
+                    }else if(boxY>document.documentElement.clientHeight-box.offsetHeight){
+                        boxY=document.documentElement.clientHeight-box.offsetHeight;
+                    }
+
+                    var a = parseFloat(img1.style.left);
+                    var b = parseFloat(img1.style.top);
+                    if(boxY>b-box.offsetHeight&&boxY<b+img1.offsetHeight&&boxX>a-box.offsetHeight&&boxX<a+img1.offsetWidth){
+                        box.style.background = "black"
+                    }else {
+                        box.style.background = "salmon"
+                    }                               //方块变色
+
+                    box.style.left = boxX+"px";
+                    box.style.top = boxY+"px";
+
+                };
+                document.onmouseup = function(){
+                    document.onmousemove= document.onmouseup=null;
+                };
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+<img src="img/11.jpg" id="img1" style="width:300px;height:300px;position: absolute;top:150px;left:500px;">
+<div id="box" style="width:100px;height:100px;background: salmon;position: absolute;top:0;left:0;text-align: center;">
+    不要把我放到那只丑死了的猫上！！我会变黑的！
+</div>
+</body>
+</html>

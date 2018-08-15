@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1,#div2{height:50px;line-height: 50px;color: red;margin-top:30px;}
+        #div1{background-color:plum;}
+        #div2{background-color:palegreen;}
+    </style>
+    <script>
+        window.onload = function(){
+            var div1 = document.getElementById("div1");
+            var div2 = document.getElementById("div2");
+
+            setInterval(function(){
+                var inner = div1.innerHTML;
+                div1.innerHTML = inner.substring(1);
+                div2.innerHTML += inner.charAt(0);
+            },500);
+        }
+    </script>
+</head>
+<body>
+<div id="div1">我是一个滚来滚去的敲烦人的文字哈哈哈哈哈哈我就爱滚过来滚过去</div>
+<div id="div2"></div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .warp{width:650px;position:absolute;top: 0;left: 300px;}
+        ul{padding: 0;}
+        p{background-color: white;opacity:0.4;width:200px;height: 180px;margin: 0;}
+        li{width:200px;height:180px;display:inline-block;list-style: none;background-size:100% 100%;}
+        #btn{display:inline-block;width:200px;height:180px;background: url("images/btn2.jpg") no-repeat 50% 50%;
+            background-size: contain;}
+    </style>
+    <script>
+        window.onload = function(){
+            var btn  = document.getElementById("btn");
+            var lis = document.getElementsByTagName("li");
+            var arr = [0,1,2,5,8,7,6,3, 0,1,2,5,8,7,6,3, 0,1,2,5,8,7,6,3];
+            var n =Math.abs(Math.ceil(Math.random()*10+11));
+            var i = 0;
+
+
+            btn.onclick = function(){
+                btn.onclick = null;
+                var time = setInterval(function() {
+                    lis[arr[i]].getElementsByTagName("p")[0].style.opacity = "0";
+                    if (i > 0) {
+                        lis[arr[i - 1]].getElementsByTagName("p")[0].style.opacity = "0.4";
+                    }
+                    i++;
+                    if (i == n) {
+                        clearInterval(time);
+                    }
+                },300);
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="warp">
+    <ul>
+        <li style="background: url('images/gift2.jpg') no-repeat"><p ></p></li>
+        <li style="background: url('images/gift3.jpg') no-repeat"><p ></p></li>
+        <li style="background: url('images/gift4.jpg') no-repeat"><p ></p></li>
+        <li style="background: url('images/gift5.jpg') no-repeat"><p ></p></li>
+        <li><span id="btn"></span></li>
+        <li style="background: url('images/gift6.jpg') no-repeat"><p ></p></li>
+        <li style="background: url('images/gift7.jpg') no-repeat"><p ></p></li>
+        <li style="background: url('images/gift8.jpg') no-repeat"><p ></p></li>
+        <li style="background: url('images/gift9.jpg') no-repeat;background-size: 190px 170px"><p ></p></li>
+    </ul>
+
+
+</div>
+</body>
+</html>

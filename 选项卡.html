@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box div{width:200px;height:200px;background:pink;display: none;}
+        #box .active{background: yellow;}
+    </style>
+    <script>
+        //在window.onload声明对象,对象调用方法
+        //变量就是属性，属性属于对象,函数就是方法，属性创建在构造函数里，方法创建在prototype下被对象调用
+        //所有属性前添加this，this指向更改，保证this指向对象，不要让this指向按钮，
+        var box=null;
+        var btn=null;
+        var odiv=null;
+        window.onload=function(){
+            box=document.getElementById("box");
+            btn=box.getElementsByTagName("input");
+            odiv=box.getElementsByTagName("div");
+            btnClick();
+        };
+        function btnClick(){
+            for(var i=0;i<btn.length;i++){
+                btn[i].index=i;
+                btn[i].onclick=fnClick;
+            }
+        }
+        function fnClick(){
+            for(var i=0;i<btn.length;i++){
+                btn[i].className="";
+                odiv[i].style.display="none";
+            }
+            this.className="active";
+            odiv[this.index].style.display="block";
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+    <input type="button" value="aaa" class="active">
+    <input type="button" value="bbb">
+    <input type="button" value="ccc">
+    <div style="display: block">aaa</div>
+    <div>bbb</div>
+    <div>ccc</div>
+</div>
+</body>
+</html>

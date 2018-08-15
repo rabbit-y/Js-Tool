@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function(){
+            var img1 = document.getElementById("img1");
+            var i =5;
+            var j =5;
+
+            document.onkeydown = function(ev){
+                ev = ev||event;
+                if(ev.keyCode==39){
+                    console.log("1");
+                    i+=5;
+                    img1.style.marginLeft = i+"px";
+                }
+                if(ev.keyCode==37){
+                    console.log("2");
+                    i-=5;
+                    img1.style.marginLeft = i+"px";
+                }
+                if(ev.keyCode==40){
+                    console.log("3");
+                    j+=5;
+                    img1.style.marginTop = j+"px";
+                }
+                if(ev.keyCode==38){
+                    console.log("4");
+                    j-=5;
+                    img1.style.marginTop = j+"px";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div><img src="../../../MyJavascript/img/10.png" style="border: 1px solid black;width:100px;height:auto;" id="img1"> </div>
+</body>
+</html>

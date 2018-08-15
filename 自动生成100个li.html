@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>li{border: 1px solid black;margin:5px;display:inline-block;list-style:none;
+        width:40px;height:30px;text-align: center;}
+    </style>
+    <script>
+        window.onload= function() {
+            var box = document.getElementById("box");
+            var btn = document.getElementById("btn");
+            var num = "";
+
+            btn.onclick = function () {
+                for (var i = 1; i <=100; i++) {
+                    num += "<li>"+i+"</li>";
+                    if (i%10==0) {
+                        num += "</br>"
+                    }
+                }
+                box.innerHTML=num;
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="自动生成100个li" id="btn">
+<div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function(){
+            var box = document.getElementsByTagName("div");
+
+            function fn(obj,attr1,attr2){
+                var time1 = null;
+                var time2 = null;
+                obj.onmouseover = function(){
+                    clearInterval(time2);
+                    time1 = setInterval(function(){
+                        if(obj[attr1]<300){
+                            obj.style[attr2] =obj[attr1]+10+"px";
+                        }else {
+                            clearInterval(time1);
+                        }
+                    },50)
+                };
+                obj.onmouseout = function(){
+                    clearInterval(time1);
+                    time2 = setInterval(function(){
+                        if(obj[attr1]>100){
+                            obj.style[attr2]=obj[attr1]-10+"px"
+                        }else {
+                            clearInterval(time2)
+                        }
+                    },50)
+                }
+            }
+            fn(box[0],"offsetHeight","height");
+            fn(box[1],"offsetHeight","height");
+            fn(box[2],"offsetHeight","height");
+        }
+    </script>
+</head>
+<body>
+<div style="width: 100px;height: 100px;background: #ffafd2;position: absolute;top:0;left:0;"></div>
+<div style="width: 100px;height: 100px;background: hotpink;position: absolute;top:0;left:130px;"></div>
+<div style="width: 100px;height: 100px;background: #ff0f87;position: absolute;top:0;left:260px;"></div>
+</body>
+</html>

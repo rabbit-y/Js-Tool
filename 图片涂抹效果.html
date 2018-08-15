@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{background: url("img/img.jpg") no-repeat;width:1000px;height:600px;margin:20px auto;}
+        li{width:48px;height:48px;border: 1px solid white;background-color:	rgba(192,192,192,0.9);list-style: none;
+            float: left;margin:0;}
+        ul{margin:0;padding:0;}
+    </style>
+    <script>
+        window.onload = function(){
+            var ull = document.getElementById("ull");
+            var lis = document.getElementsByTagName("li");
+            var lii = "";
+
+            for (var i = 1; i <=200; i++) {    //通过计算背景图片的宽高计算i的最大值
+                lii += "<li>"+"</li>";
+                ull.innerHTML=lii;        //在ul中生成200个li
+            }
+            for (var j=0;j<=lis.length;j++) {
+                lis[j].index = j;          //自定义变量index
+                lis[j].onmouseover = function(){
+                    this.style.cssText="opacity:0;" ;   //鼠标划过的这一个j的style改变
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div>
+    <ul id="ull">
+
+    </ul>
+</div>
+</body>
+</html>

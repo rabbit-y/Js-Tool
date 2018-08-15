@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function(){
+            var oImg = document.getElementsByTagName("img");
+
+            function getTime() {
+                var date = new Date();
+                var hour = date.getHours();
+                var min = date.getMinutes();
+                var sec = date.getSeconds();
+                var a ="";
+                b = sec + a;
+                d = min + a;
+                e = hour+ a;
+
+                oImg[0].src = "img/" +tim(e)[0]+".JPG";
+                oImg[1].src = "img/" +tim(e)[1]+".JPG";
+                oImg[3].src = "img/" +tim(d)[0]+".JPG";
+                oImg[4].src = "img/" +tim(d)[1]+".JPG";
+                oImg[6].src = "img/" +tim(b)[0]+".JPG";
+                oImg[7].src = "img/" +tim(b)[1]+".JPG";
+
+                function tim(n){
+                    return n < 10 ? "0"+ n :"" + n;
+                }
+            }
+            getTime();
+            setInterval(getTime,1000)
+        }
+    </script>
+</head>
+<body>
+<img src="img/0.JPG">
+<img src="img/0.JPG">
+<img src="img/colon.JPG">
+<img src="img/0.JPG">
+<img src="img/0.JPG">
+<img src="img/colon.JPG">
+<img src="img/0.JPG">
+<img src="img/0.JPG">
+</body>
+</html>

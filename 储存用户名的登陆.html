@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function(){
+            var txt = document.getElementById("txt");
+            var btn1 = document.getElementById("btn1");
+            var btn2 = document.getElementById("btn2");
+
+            btn1.onclick = function(){
+                setCookie("用户名",txt.value,7);
+                alert("登陆成功");
+            };
+            txt.value = getCookie("用户名");
+            btn2.onclick = function(){
+                removeCookie("用户名");
+                txt.value = "";
+            };
+
+
+            function setCookie(key,val,time){
+                var date = new Date();
+                date.setDate(date.getDate()+time);
+                document.cookie = key + "=" + val + ";expires=" + date;
+            }
+            function getCookie(key){
+                var arr = document.cookie.split("; ");
+                for(var i = 0;i<arr.length;i++){
+                    var arr1 = arr[i].split("=");
+                    if(arr1[0]==key){
+                        return arr1[1]
+                    }
+                }
+            }
+            function removeCookie(key){
+                setCookie(key,"",0);
+            }
+
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="txt" value="">
+<input type="button" id="btn1" value="登录">
+<input type="button" id="btn2" value="删除">
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title> <style>
+    p{display: none;height:50px;margin:0;}
+    li{height:50px;}
+</style>
+    <script>
+        window.onload = function(){
+            var lis = document.getElementsByTagName("li");
+
+            function add(oll){
+                var divs = oll.getElementsByTagName("div")[0];
+                var span1 = oll.getElementsByTagName("span")[0];
+                var ps = oll.getElementsByTagName("p")[0];
+                var txt = oll.getElementsByTagName("input")[0];
+                var btn = oll.getElementsByTagName("b");
+
+                btn[0].onclick = function(){
+                    divs.style.display="none";
+                    ps.style.display="block";
+                    txt.value=span1.innerHTML;
+                };
+                btn[1].onclick = function(){
+                    divs.style.display="block";
+                    ps.style.display="none";
+                    span1.innerHTML = txt.value;
+                };
+                btn[2].onclick = function(){
+                    divs.style.display="block";
+                    ps.style.display="none";
+                }
+            }
+            for (var i=0;i<lis.length;i++) {
+                add(lis[i]);
+            }
+        }
+    </script>
+</head>
+<body>
+<ul>
+    <li>
+        <div><span>javascript高级程序设计</span> <b>编辑</b></div>
+        <p><input type="text"><b>保存</b>&nbsp<b>取消</b></p>
+    </li>
+    <li>
+        <div><span>javascript高级程序设计</span> <b>编辑</b></div>
+        <p><input type="text"><b>保存</b>&nbsp<b>取消</b></p>
+    </li>
+    <li>
+        <div><span>javascript高级程序设计</span> <b>编辑</b></div>
+        <p><input type="text"><b>保存</b>&nbsp<b>取消</b></p>
+    </li>
+    <li>
+        <div><span>javascript高级程序设计</span> <b>编辑</b></div>
+        <p><input type="text"><b>保存</b>&nbsp<b>取消</b></p>
+    </li>
+    <li>
+        <div><span>javascript高级程序设计</span> <b>编辑</b></div>
+        <p><input type="text"><b>保存</b>&nbsp<b>取消</b></p>
+    </li>
+</ul>
+
+</body>
+</html>

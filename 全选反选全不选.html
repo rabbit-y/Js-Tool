@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{display: block;margin-top:20px;}
+    </style>
+    <script>
+        window.onload = function(){
+            var divs = document.getElementsByTagName("div");
+            var btn = divs[0].getElementsByTagName("input");
+            var btn2 =divs[1].getElementsByTagName("input");
+
+            btn[0].onclick = function(){
+                for(var i=0;i<btn2.length;i++){
+                    btn2[i].checked =true;
+                }
+            };
+            btn[1].onclick = function(){
+                for(var i=0;i<btn2.length;i++){
+                    btn2[i].checked =false;
+                }
+            };
+            btn[2].onclick = function(){
+                for(var i=0;i<btn2.length;i++){
+                    if(btn2[i].checked==true){
+                        btn2[i].checked =false;
+                    }else{
+                        btn2[i].checked =true;
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div>
+    <input type="button" value="全选">
+    <input type="button" value="不选">
+    <input type="button" value="反选">
+</div>
+<div>
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+</div>
+</body>
+</html>
