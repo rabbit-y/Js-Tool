@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .warp{width:400px;margin: 0 auto;}
+        #box{width:400px;height:400px;margin-top:20px;border:1px solid salmon;margin-bottom: 10px;overflow: auto;}
+        #name{font-size:16px;color:black;font-weight: bold;}
+        #btn{border:none;background-color: aquamarine;color:#ffffff;font-size:16px;line-height:20px;}
+        #txt{border: 2px solid red;width:300px;}
+    </style>
+    <script>
+        window.onload = function(){
+            var box = document.getElementById("box");
+            var name = document.getElementById("name");
+            var txt = document.getElementById("txt");
+            var btn = document.getElementById("btn");
+            var n = txt.value;
+
+            btn.onclick = function(){
+                if(txt.value == ""){
+                    alert("输入内容不能为空");
+                }else{
+                    n =n + name.innerHTML +":" + txt.value+"<br>";
+                    box.innerHTML=n;
+                    txt.value = "";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="warp">
+    <div id="box">
+    </div>
+    <div>
+        <span id="name">四哥</span>
+        <input type="text" id="txt">
+        <input type="button" id="btn" value="发送">
+    </div>
+</div>
+</body>
+</html>
